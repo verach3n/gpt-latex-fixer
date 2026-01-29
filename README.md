@@ -63,7 +63,7 @@ $$
 
 ## Credits
 
-- **Original Author:** Haowen Jiang (May 30, 2024)
+- **Original Author:** @147258369-haowen (May 30, 2024)
 - **Maintainer:** Forked and maintained with additional improvements (2026)
 
 

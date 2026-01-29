@@ -1,63 +1,74 @@
-# LaTeX 公式格式转换工具
+# LaTeX Formula Converter
 
-将 Markdown 文件中 GPT/ChatGPT 生成的 LaTeX 公式格式转换为标准 Markdown 可渲染格式。
+A lightweight C utility to convert LaTeX formula delimiters in Markdown files, making ChatGPT/AI-generated mathematical formulas display correctly in standard Markdown renderers.
 
-## 背景
+## Problem
 
-ChatGPT 等 AI 工具生成的 Markdown 文档中，LaTeX 公式常使用 `\(` `\)` 和 `\[` `\]` 作为分隔符，这在很多 Markdown 编辑器（如 Typora、VS Code）中无法正确渲染。此工具将其转换为通用的 `$` 和 `$$` 格式。
+ChatGPT and other AI models often output LaTeX formulas using `\( \)` for inline math and `\[ \]` for block math. However, many Markdown renderers (GitHub, VSCode, Obsidian, etc.) expect `$ $` and `$$ $$` syntax instead.
 
-## 转换规则
+## Solution
 
-| 原格式 | 转换后 | 说明 |
-|--------|--------|------|
-| `\(` | `$` | 行内公式开始 |
-| `\)` | `$` | 行内公式结束 |
-| `\[` | `$$` | 块级公式开始 |
-| `\]` | `$$` | 块级公式结束 |
-| `\*` | `*` | 移除多余转义（修复 GPT 生成的错误，如 `\pi^\*` → `\pi^*`） |
+This tool converts:
 
-## 编译
+| From | To | Type |
+|------|-----|------|
+| `\(` ... `\)` | `$` ... `$` | Inline math |
+| `\[` ... `\]` | `$$` ... `$$` | Block math |
+| `\*` | `*` | Remove unnecessary escape |
+
+## Building
 
 ```bash
-gcc latexconvert.c -o latexconvert
+# Linux/macOS
+gcc -o latexconvert latexconvert.c
+
+# Windows (MinGW)
+gcc -o latex.exe latexconvert.c
 ```
 
-## 使用方法
+## Usage
 
 ```bash
-# 输出到默认的 output.md
+# Basic usage (outputs to output.md)
 ./latexconvert input.md
 
-# 指定输出文件
-./latexconvert input.md output.md
-
-# 直接覆盖原文件
-./latexconvert input.md input.md
+# Specify output file
+./latexconvert input.md converted.md
 ```
 
-## 示例
+## Example
 
-**转换前：**
+**Input:**
 ```markdown
-给定 prompt \(x\)，生成序列 \(y\)
+The quadratic formula is \( x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} \).
 
-目标分布为：
+The Euler's identity:
 \[
-\pi^*(y|x) \propto \pi_{\text{ref}}(y|x) \exp\left(\frac{r(x,y)}{\beta}\right)
+e^{i\pi} + 1 = 0
 \]
 ```
 
-**转换后：**
+**Output:**
 ```markdown
-给定 prompt $x$，生成序列 $y$
+The quadratic formula is $ x = \frac{-b \pm \sqrt{b^2-4ac}}{2a} $.
 
-目标分布为：
+The Euler's identity:
 $$
-\pi^*(y|x) \propto \pi_{\text{ref}}(y|x) \exp\left(\frac{r(x,y)}{\beta}\right)
+e^{i\pi} + 1 = 0
 $$
 ```
 
-## 作者
+## Pre-built Binaries
 
-- 原作者：Haowen Jiang (2024/05/30)
-- 修改：2026
+- `latexconvert` - Linux binary
+- `latex.exe` - Windows binary
+
+## Author
+
+- Haowen Jiang
+- Original: May 30, 2024
+- Modified: 2026
+
+## License
+
+MIT

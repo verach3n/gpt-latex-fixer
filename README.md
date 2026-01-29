@@ -59,13 +59,13 @@ $$
 ## Pre-built Binaries
 
 - `latexconvert` - Linux binary
-- `latex.exe` - Windows binary
 
-## Author
 
-- Haowen Jiang
-- Original: May 30, 2024
-- Modified: 2026
+## Credits
+
+- **Original Author:** Haowen Jiang (May 30, 2024)
+- **Maintainer:** Forked and maintained with additional improvements (2026)
+
 
 ## License
 

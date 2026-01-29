@@ -22,8 +22,6 @@ This tool converts:
 # Linux/macOS
 gcc -o latexconvert latexconvert.c
 
-# Windows (MinGW)
-gcc -o latex.exe latexconvert.c
 ```
 
 ## Usage

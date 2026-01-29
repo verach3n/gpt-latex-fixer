@@ -1,12 +1,12 @@
-# LaTeX Formula Converter
+# LaTeX Formula Converter 🪄
 
 A lightweight C utility to convert LaTeX formula delimiters in Markdown files, making ChatGPT/AI-generated mathematical formulas display correctly in standard Markdown renderers.
 
-## Problem
+## Problem 🤔
 
 ChatGPT and other AI models often output LaTeX formulas using `\( \)` for inline math and `\[ \]` for block math. However, many Markdown renderers (GitHub, VSCode, Obsidian, etc.) expect `$ $` and `$$ $$` syntax instead.
 
-## Solution
+## Solution 😈
 
 This tool converts:
 
@@ -16,7 +16,7 @@ This tool converts:
 | `\[` ... `\]` | `$$` ... `$$` | Block math |
 | `\*` | `*` | Remove unnecessary escape |
 
-## Building
+## Building 🔧
 
 ```bash
 # Linux/macOS
@@ -24,7 +24,7 @@ gcc -o latexconvert latexconvert.c
 
 ```
 
-## Usage
+## Usage 🚀
 
 ```bash
 # Basic usage (outputs to output.md)
@@ -34,7 +34,7 @@ gcc -o latexconvert latexconvert.c
 ./latexconvert input.md converted.md
 ```
 
-## Example
+## Example ✍️
 
 **Input:**
 ```markdown
@@ -56,12 +56,12 @@ e^{i\pi} + 1 = 0
 $$
 ```
 
-## Pre-built Binaries
+## Pre-built Binaries 📦
 
 - `latexconvert` - Linux binary
 
 
-## Credits
+## Credits 👏
 
 - **Original Author:** @147258369-haowen (May 30, 2024)
 - **Maintainer:** Forked and maintained with additional improvements (2026)
